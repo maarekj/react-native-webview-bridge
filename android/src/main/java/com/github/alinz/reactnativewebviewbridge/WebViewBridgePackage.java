@@ -8,23 +8,23 @@ import com.facebook.react.uimanager.ViewManager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+
 public class WebViewBridgePackage implements ReactPackage {
+    @NonNull
     @Override
-    public List<NativeModule> createNativeModules(ReactApplicationContext reactApplicationContext) {
+    public List<NativeModule> createNativeModules(@NonNull ReactApplicationContext reactApplicationContext) {
         return new ArrayList<>();
     }
 
+    @NonNull
     @Override
-    public List<ViewManager> createViewManagers(ReactApplicationContext reactApplicationContext) {
-        return Arrays.<ViewManager>asList(
+    public List<ViewManager> createViewManagers(@NonNull ReactApplicationContext reactApplicationContext) {
+        return Collections.<ViewManager>singletonList(
                 new WebViewBridgeManager()
         );
-    }
-
-    @Override
-    public List<Class<? extends JavaScriptModule>> createJSModules() {
-        return Arrays.asList();
     }
 }
